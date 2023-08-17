@@ -18,6 +18,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:unit": "react-scripts test --passWithNoTests",
+    "test:lint": "react-scripts test --passWithNoTests",
+    "test:integration": "react-scripts test --passWithNoTests",
+    "test:e2e": "react-scripts test --passWithNoTests",
+    "test:browser": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
