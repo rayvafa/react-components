@@ -1,0 +1,26 @@
+name: Running tests and then attempting deployment to staging and production
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  pre-deployment-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Running unit tests
+        run: npm run test:unit
+      - name: Running lint
+        run: npm run test:lint
+      - name: Running integration
+        run: npm run test:integration
+      - name: Running end2end
+        run: npm run test:e2e
