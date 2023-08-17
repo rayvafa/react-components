@@ -1,0 +1,19 @@
+name: Running tests agains PRs
+on:
+  pull_request:
+    types: [ opened, reopened, synchorize ]
+
+jobs:
+  on-pull-request-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Running integration tests
+        run: npm run test:integration
