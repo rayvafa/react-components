@@ -1,0 +1,9 @@
+name: Running tests against commits
+on: [push]
+
+jobs:
+  on-commit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        run: actions/checkout@v3
