@@ -1,5 +1,8 @@
 name: Running tests against commits
-on: [push]
+on: 
+  push:
+    branches: 
+      - '!master'
 
 jobs:
   on-commit-tests:
