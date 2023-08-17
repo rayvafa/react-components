@@ -24,3 +24,23 @@ jobs:
         run: npm run test:integration
       - name: Running end2end
         run: npm run test:e2e
+
+  build-and-deploy-to-staging:
+    runs-on: ubuntu-latest
+    needs: pre-deployment-tests
+    environment: staging
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Build the projext
+        run: npm run build
+      - name: Deployment to stage
+        run: |
+          echo 'Starting to deploy...'
+          echo 'Deployment completed'
